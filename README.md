@@ -1,34 +1,75 @@
-# Projeto-1-CRM
+# Nuxt Minimal Starter
 
-Sistema CRM desenvolvido durante o curso SAS
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Descrição
+## Setup
 
-Este é um sistema de Customer Relationship Management (CRM) desenvolvido como parte do curso SAS. O projeto tem como objetivo gerenciar relacionamentos com clientes de forma eficiente e organizada.
+Make sure to install dependencies:
 
-## Funcionalidades
+```bash
+# npm
+npm install
 
-- Gestão de clientes
-- Controle de vendas
-- Relatórios e análises
-- Interface responsiva
+# pnpm
+pnpm install
 
-## Tecnologias Utilizadas
+# yarn
+yarn install
 
-- Frontend: React + TypeScript
-- Styling: Tailwind CSS
-- Build Tool: Vite
+# bun
+bun install
+```
 
-## Como Executar
+## Development Server
 
-1. Clone o repositório
-2. Instale as dependências: `npm install`
-3. Execute o projeto: `npm run dev`
+Start the development server on `http://localhost:3000`:
 
-## Autor
+```bash
+# npm
+npm run dev
 
-Lukas Lopes Mussoi
+# pnpm
+pnpm dev
 
-## Licença
+# yarn
+yarn dev
 
-Este projeto está sob a licença MIT.
+# bun
+bun run dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# npm
+npm run build
+
+# pnpm
+pnpm build
+
+# yarn
+yarn build
+
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
