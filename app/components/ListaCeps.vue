@@ -1,11 +1,11 @@
 <template>
-  <div v-if="historicoCeps.length > 0" class="bg-white rounded-lg shadow-lg p-6 mt-6">
-    <div class="border-b border-gray-200 pb-4 mb-4">
+  <div v-if="historicoCeps.length > 0" class="bg-white rounded-lg shadow-lg p-6 mt-6 border border-rosa-claro">
+    <div class="border-b border-rosa-claro pb-4 mb-4">
       <div class="flex items-center justify-between">
-        <h3 class="text-xl font-semibold text-gray-900">Histórico de CEPs</h3>
+        <h3 class="text-xl font-semibold text-rosa-escuro">Histórico de CEPs</h3>
         <button 
           @click="limparHistorico"
-          class="text-sm text-red-600 hover:text-red-800 transition-colors"
+          class="text-sm text-rosa-escuro hover:text-primary-700 transition-colors"
         >
           Limpar histórico
         </button>
@@ -17,13 +17,13 @@
       <div 
         v-for="(cepItem, index) in historicoCeps" 
         :key="index"
-        class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer"
+        class="border border-rosa-claro rounded-lg p-4 hover:border-rosa-escuro hover:shadow-sm transition-all cursor-pointer"
         @click="selecionarCep(cepItem)"
       >
         <div class="flex items-center justify-between">
           <div class="flex-1">
             <div class="flex items-center space-x-3">
-              <span class="text-lg font-semibold text-blue-600">{{ cepItem.cep }}</span>
+              <span class="text-lg font-semibold text-rosa-escuro">{{ cepItem.cep }}</span>
               <span class="text-sm text-gray-500">{{ formatarDataPesquisa(cepItem.dataPesquisa) }}</span>
             </div>
             <div class="text-gray-700 mt-1">
