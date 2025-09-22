@@ -80,11 +80,11 @@ defineEmits(['click'])
 // Classes baseadas na variante
 const variantClasses = computed(() => {
   const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500',
+    primary: 'bg-rosa-escuro hover:bg-primary-700 text-white focus:ring-rosa-claro',
     secondary: 'bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500',
     success: 'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500',
     danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500'
+    outline: 'border-2 border-rosa-escuro text-rosa-escuro hover:bg-rosa-escuro hover:text-white focus:ring-rosa-claro'
   }
   return variants[props.variant]
 })

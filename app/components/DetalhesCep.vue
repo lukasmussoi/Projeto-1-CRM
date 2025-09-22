@@ -1,7 +1,7 @@
 <template>
-  <div v-if="dadosCep" class="bg-white rounded-lg shadow-lg p-6 mt-6">
-    <div class="border-b border-gray-200 pb-4 mb-4">
-      <h3 class="text-xl font-semibold text-gray-900">Detalhes do CEP</h3>
+  <div v-if="dadosCep" class="bg-white rounded-lg shadow-lg p-6 mt-6 border border-rosa-claro">
+    <div class="border-b border-rosa-claro pb-4 mb-4">
+      <h3 class="text-xl font-semibold text-rosa-escuro">Detalhes do CEP</h3>
     </div>
 
     <div class="grid md:grid-cols-2 gap-4">

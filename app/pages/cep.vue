@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-primary-50">
     <div class="container mx-auto px-4 py-16">
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+        <h1 class="text-3xl font-bold text-rosa-escuro mb-4">
           Consulta CEP
         </h1>
         <p class="text-gray-600">
@@ -28,7 +28,7 @@
         </div>
         
         <!-- Mensagem de erro -->
-        <div v-if="error" class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+        <div v-if="error" class="mt-4 p-3 bg-primary-100 border border-rosa-claro text-rosa-escuro rounded">
           {{ error }}
         </div>
       </div>
