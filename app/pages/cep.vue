@@ -37,6 +37,15 @@
       <div class="max-w-2xl mx-auto">
         <DetalhesCep :dados-cep="dadosCep" />
       </div>
+
+      <!-- Componente de histórico -->
+      <div class="max-w-2xl mx-auto">
+        <ListaCeps 
+          :historico-ceps="[...historicoCeps]"
+          @selecionar-cep="handleSelecionarCep"
+          @limpar-historico="handleLimparHistorico"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -46,9 +55,10 @@ import { ref } from 'vue'
 import BaseInput from '~/components/BaseInput.vue'
 import BaseButton from '~/components/BaseButton.vue'
 import DetalhesCep from '~/components/DetalhesCep.vue'
+import ListaCeps from '~/components/ListaCeps.vue'
 
 // Composable para CEP
-const { dadosCep, loading, error, buscarCep } = useCep()
+const { dadosCep, loading, error, historicoCeps, buscarCep, selecionarCepDoHistorico, limparHistorico } = useCep()
 
 // Estado reativo
 const cep = ref('')
@@ -56,6 +66,17 @@ const cep = ref('')
 // Função de busca
 const buscarCepHandler = () => {
   buscarCep(cep.value)
+}
+
+// Função para selecionar CEP do histórico
+const handleSelecionarCep = (cepItem: any) => {
+  selecionarCepDoHistorico(cepItem)
+  cep.value = cepItem.cep
+}
+
+// Função para limpar histórico
+const handleLimparHistorico = () => {
+  limparHistorico()
 }
 
 // Definir metadados da página

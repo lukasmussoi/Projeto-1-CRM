@@ -1,10 +1,16 @@
 import { ref, type Ref } from 'vue'
 import type { CepResponse, CepError } from '~/types/cep'
 
+// Interface para item do histórico
+interface HistoricoCepItem extends CepResponse {
+  dataPesquisa: Date
+}
+
 export const useCep = () => {
   const dadosCep: Ref<CepResponse | null> = ref(null)
   const loading: Ref<boolean> = ref(false)
   const error: Ref<string | null> = ref(null)
+  const historicoCeps: Ref<HistoricoCepItem[]> = ref([])
 
   const buscarCep = async (cep: string): Promise<void> => {
     // Limpar dados anteriores
@@ -44,6 +50,8 @@ export const useCep = () => {
       // Garantir que temos uma resposta válida
       if ('cep' in response) {
         dadosCep.value = response
+        // Adicionar ao histórico se não existir
+        adicionarAoHistorico(response)
       } else {
         error.value = 'Resposta inválida da API'
       }
@@ -53,6 +61,34 @@ export const useCep = () => {
     } finally {
       loading.value = false
     }
+  }
+
+  const adicionarAoHistorico = (cepResponse: CepResponse): void => {
+    // Verificar se o CEP já existe no histórico
+    const cepExiste = historicoCeps.value.some(item => item.cep === cepResponse.cep)
+    
+    if (!cepExiste) {
+      const novoItem: HistoricoCepItem = {
+        ...cepResponse,
+        dataPesquisa: new Date()
+      }
+      // Adicionar no início da lista (mais recente primeiro)
+      historicoCeps.value.unshift(novoItem)
+      
+      // Limitar histórico a 10 itens
+      if (historicoCeps.value.length > 10) {
+        historicoCeps.value = historicoCeps.value.slice(0, 10)
+      }
+    }
+  }
+
+  const selecionarCepDoHistorico = (cepItem: HistoricoCepItem): void => {
+    dadosCep.value = cepItem
+    error.value = null
+  }
+
+  const limparHistorico = (): void => {
+    historicoCeps.value = []
   }
 
   const limparDados = (): void => {
@@ -65,7 +101,10 @@ export const useCep = () => {
     dadosCep: readonly(dadosCep),
     loading: readonly(loading),
     error: readonly(error),
+    historicoCeps: readonly(historicoCeps),
     buscarCep,
+    selecionarCepDoHistorico,
+    limparHistorico,
     limparDados
   }
 }
