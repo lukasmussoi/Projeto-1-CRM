@@ -1,0 +1,20 @@
+
+### **📁 Onde colocar a regra:**
+
+Crie o arquivo `.vscode/settings.json` na raiz do projeto:
+
+````json
+{
+  "github.copilot.enable": {
+    "*": true,
+    "vue": true,
+    "javascript": true,
+    "typescript": true
+  },
+  "github.copilot.chat.codeGeneration.instructions": [
+    "SEMPRE importe componentes Vue explicitamente no script setup, mesmo com auto-import do Nuxt habilitado",
+    "Use import explícito: import ComponentName from '~/components/ComponentName.vue'",
+    "Não dependa apenas do auto-import do Nuxt para componentes",
+    "Torne todas as dependências de componentes explícitas e visíveis no código"
+  ]
+}
